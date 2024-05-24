@@ -5,16 +5,11 @@ def clean_ingredients(dish_name, dish_ingredients):
     return [dish_name, dish_ingredients]
 
 def check_drinks(drink_name, drink_ingredients):
-    x = 0
-    for ing in drink_ingredients:
-        ing = drink_ingredients[0+x]
-        if ing in ALCOHOLS:
-            tail_type = 'Cocktail'
-            break
-        else:
-            tail_type = 'Mocktail'
-            if x < len(drink_ingredients)-1:
-                x += 1
-            else:
-                break
-    return drink_name +' '+ tail_type
+    ing_set = set(drink_ingredients)
+
+    if ing_set.intersection(ALCOHOLS) != set():
+        tail_type = 'Cocktail'
+        return drink_name +' '+ tail_type
+    else:
+        tail_type = 'Mocktail'
+        return drink_name +' '+ tail_type
