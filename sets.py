@@ -6,7 +6,8 @@ def clean_ingredients(dish_name, dish_ingredients):
 
 def check_drinks(drink_name, drink_ingredients):
     x = 0
-    for ing in ALCOHOLS:
+
+    for ing in drink_ingredients:
         ing = drink_ingredients[0+x]
         if ing in ALCOHOLS:
             tail_type = 'Cocktail'
