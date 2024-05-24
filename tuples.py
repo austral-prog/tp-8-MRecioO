@@ -1,32 +1,16 @@
-"""Functions to help Azara and Rui locate pirate treasure."""
-
-
-def get_coordinate(record):
-    """Return coordinate value from a tuple containing the treasure name, and treasure coordinate.
-
-    :param record: tuple - with a (treasure, coordinate) pair.
-    :return: str - the extracted map coordinate.
-    """
-
-    return ""
-
+def get_coordinate(tesoro):
+    coordenada = tesoro[1]
+    return coordenada
 
 def convert_coordinate(coordinate):
-    """Split the given coordinate into tuple containing its individual components.
-
-    :param coordinate: str - a string map coordinate
-    :return: tuple - the string coordinate split into its individual components.
-    """
-
-    return ()
-
+    coordinate_N, coordinate_C = coordinate[0], coordinate[1]
+    azara_cord = coordinate_N, coordinate_C
+    return azara_cord
 
 def create_record(azara_record, rui_record):
-    """Combine the two record types (if possible) and create a combined record group.
-
-    :param azara_record: tuple - a (treasure, coordinate) pair.
-    :param rui_record: tuple - a (location, coordinate, quadrant) trio.
-    :return: tuple or str - the combined record (if compatible), or the string "not a match" (if incompatible).
-    """
-
-    return ()
+    coordinate_N, coordinate_C = azara_record[1][0], azara_record[1][1]
+    azara_cord = coordinate_N, coordinate_C    
+    if azara_cord == rui_record[1]:
+        return azara_record + rui_record
+    else:
+        return 'not a match'
